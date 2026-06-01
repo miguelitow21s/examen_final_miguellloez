@@ -1,8 +1,8 @@
 package com.teamarrow.mirakuru.infrastructure.adapter.in.web.error;
 
-import com.teamarrow.mirakuru.domain.exception.AffectedNotFoundException;
 import com.teamarrow.mirakuru.domain.exception.DomainException;
 import com.teamarrow.mirakuru.domain.exception.DuplicateAffectedException;
+import com.teamarrow.mirakuru.domain.exception.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import java.util.List;
 import org.springframework.http.HttpStatus;
@@ -22,9 +22,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    /** A missing aggregate is a 404. */
-    @ExceptionHandler(AffectedNotFoundException.class)
-    public ResponseEntity<ApiError> handleNotFound(AffectedNotFoundException ex, HttpServletRequest request) {
+    /** Any missing aggregate (affected, mission, team member) is a 404. */
+    @ExceptionHandler(EntityNotFoundException.class)
+    public ResponseEntity<ApiError> handleNotFound(EntityNotFoundException ex, HttpServletRequest request) {
         return build(HttpStatus.NOT_FOUND, ex.getMessage(), request);
     }
 

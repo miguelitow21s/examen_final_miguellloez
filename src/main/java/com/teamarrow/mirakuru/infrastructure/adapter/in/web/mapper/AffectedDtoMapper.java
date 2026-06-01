@@ -4,8 +4,10 @@ import com.teamarrow.mirakuru.application.port.in.command.RegisterAffectedComman
 import com.teamarrow.mirakuru.application.port.in.command.UpdateAffectedCommand;
 import com.teamarrow.mirakuru.domain.model.AffectedIndividual;
 import com.teamarrow.mirakuru.domain.model.Location;
+import com.teamarrow.mirakuru.domain.model.intel.IntelReport;
 import com.teamarrow.mirakuru.domain.service.ThreatAssessmentService;
 import com.teamarrow.mirakuru.infrastructure.adapter.in.web.dto.AffectedResponse;
+import com.teamarrow.mirakuru.infrastructure.adapter.in.web.dto.IntelReportResponse;
 import com.teamarrow.mirakuru.infrastructure.adapter.in.web.dto.LocationResponse;
 import com.teamarrow.mirakuru.infrastructure.adapter.in.web.dto.RegisterAffectedRequest;
 import com.teamarrow.mirakuru.infrastructure.adapter.in.web.dto.UpdateAffectedRequest;
@@ -63,5 +65,13 @@ public class AffectedDtoMapper {
                 new LocationResponse(location.sector(), location.latitude(), location.longitude()),
                 affected.getRegisteredAt(),
                 affected.getLastUpdatedAt());
+    }
+
+    public IntelReportResponse toResponse(IntelReport report) {
+        return new IntelReportResponse(
+                report.sourceName(),
+                report.headline(),
+                report.confidence(),
+                report.reportedAt());
     }
 }
