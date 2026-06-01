@@ -1,5 +1,3 @@
-# Mirakuru Tracker — Examen Final
-
 Sistema de dominio para el **Equipo Arrow**. Es el *corazón lógico* que permite
 **identificar y rastrear** afectados por el suero **Mirakuru**, **clasificar
 amenazas** por riesgo, **coordinar misiones** entre los miembros del equipo,
@@ -9,13 +7,6 @@ REST** sin romper los principios arquitectónicos.
 
 Diseñado aplicando **Domain Driven Design (DDD)**, **principios SOLID**,
 **servicios de dominio**, **puertos e interfaces** y **Arquitectura Hexagonal**.
-
-> El código está escrito en **inglés** (clases, métodos, variables); la
-> documentación y la justificación del diseño están en **español**. Las rutas de
-> la API se mantienen en español (`/api/afectados`, `/api/misiones`,
-> `/api/equipo`) tal como exige el enunciado.
-
----
 
 ## 1. Mapa de capacidades exigidas → implementación
 
